@@ -1,16 +1,13 @@
 # mybiz
 
-A new Flutter project.
+Development of mybiz using frontend of flutter backend tbd.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+app succesfully made connection with login api.
 
-A few resources to get you started if this is your first Flutter project:
+Sign in connection to tester api at "https://mybiz-staging.herokuapp.com/login/" is successfull
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Next job
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+sign up api config
