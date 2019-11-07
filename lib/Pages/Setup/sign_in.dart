@@ -16,6 +16,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
 
   bool _isLoading = false;
+  bool _validate = false;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +40,9 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+
+   TextEditingController userController = new TextEditingController();
+   TextEditingController passwordController = new TextEditingController();
 
   signIn(String username, pass) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
@@ -75,9 +79,14 @@ class _LoginPageState extends State<LoginPage> {
       child: RaisedButton(
         onPressed: userController.text == "" || passwordController.text == "" ? null : () {
           setState(() {
+            userController.text.isEmpty ? _validate = true : _validate = false;
+            passwordController.text.isEmpty ? _validate = true : _validate = false;
+          });
+          setState(() {
             _isLoading = true;
           });
           signIn(userController.text, passwordController.text);
+         
         },
         elevation: 0.0,
         color: Colors.purple,
@@ -87,8 +96,7 @@ class _LoginPageState extends State<LoginPage> {
       );
   }
 
-  final TextEditingController userController = new TextEditingController();
-  final TextEditingController passwordController = new TextEditingController();
+
 
   Container textSection() {
     return Container(
@@ -116,6 +124,7 @@ class _LoginPageState extends State<LoginPage> {
             decoration: InputDecoration(
               icon: Icon(Icons.lock, color: Colors.white70),
               hintText: "Password",
+              errorText: _validate ? 'Value Can\'t be Empty' :null,
               border: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white70)),
               hintStyle: TextStyle(color: Colors.white70),
             ),

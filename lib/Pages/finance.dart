@@ -1,14 +1,13 @@
 import 'package:mybiz/Pages/Setup/welcome.dart';
 import 'package:flutter/material.dart';
-import 'package:mybiz/Pages/finance.dart'as prefix1;
+import 'package:mybiz/Pages/home.dart' as prefix0;
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Home extends StatelessWidget {
-
+class Finance extends StatelessWidget {
   @override
  Widget build(BuildContext context) {
     return MaterialApp(
-      title: "MyBiz",
+      title: "Finance Page",
       debugShowCheckedModeBanner: false,
       home: MainPage(),
       theme: ThemeData(
@@ -27,35 +26,15 @@ class _MainPageState extends State<MainPage> {
 
   SharedPreferences sharedPreferences;
 
-  @override
-  void initState() {
-    super.initState();
-    checkLoginStatus();
-  }
-
-  checkLoginStatus() async {
-    sharedPreferences = await SharedPreferences.getInstance();
-    if(sharedPreferences.getString("token") == null) {
-      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => WelcomePage()), (Route<dynamic> route) => false);
-    }
-  }
-
-  @override
+@override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("MyBiz", style: TextStyle(color: Colors.white)),
         actions: <Widget>[
-          FlatButton(
-            onPressed: () {
-              sharedPreferences.clear();
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => WelcomePage()), (Route<dynamic> route) => false);
-            },
-            child: Text("Log Out", style: TextStyle(color: Colors.white)),
-          ),
         ],
       ),
-      body: Center(child: Text("Dashboard page/same as in xd will be dev in future...")),
+      body: Center(child: Text("Finance page test/this is a test for the drawer")),
       drawer: Drawer(
         child:SafeArea(
         left: true,
@@ -95,9 +74,10 @@ class _MainPageState extends State<MainPage> {
             ListTile(
               title: Text('DASHBOARD'),
               trailing: Icon(Icons.dashboard),
-              onTap: (){
-                Navigator.pop(context);
-              },
+              onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => prefix0.Home(), fullscreenDialog: true));
+              }
             ),
             Divider(height: 2.0,),
             ListTile(
@@ -105,7 +85,7 @@ class _MainPageState extends State<MainPage> {
               trailing: Icon(Icons.monetization_on),
               onTap: () {
               Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => prefix1.Finance(), fullscreenDialog: true));
+            //  Navigator.push(context, MaterialPageRoute(builder: (context) => null, fullscreenDialog: true));
               }
             ),
               

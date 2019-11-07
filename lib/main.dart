@@ -20,3 +20,19 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class BodyWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.topLeft,
+      child: SafeArea(
+        left: true,
+        top: true,
+        right: true,
+        bottom: true,
+        minimum: const EdgeInsets.all(16.0), child: null,
+      ),
+    );
+  }
+}
