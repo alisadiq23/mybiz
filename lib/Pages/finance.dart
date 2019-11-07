@@ -24,7 +24,20 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
 
-  SharedPreferences sharedPreferences;
+   SharedPreferences sharedPreferences;
+
+  @override
+  void initState() {
+    super.initState();
+    checkLoginStatus();
+  }
+
+  checkLoginStatus() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+    if(sharedPreferences.getString("token") == null) {
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => WelcomePage()), (Route<dynamic> route) => false);
+    }
+  }
 
 @override
   Widget build(BuildContext context) {
