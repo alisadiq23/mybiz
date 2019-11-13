@@ -56,6 +56,7 @@ class _MainPageState extends State<MainPage> {
           FlatButton(
             onPressed: () {
               sharedPreferences.clear();
+              Navigator.pop(context);
               Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => WelcomePage()), (Route<dynamic> route) => false);
             },
             child: Text("Log Out", style: TextStyle(color: Colors.white)),
@@ -183,6 +184,7 @@ class _MainPageState extends State<MainPage> {
               new RaisedButton(
               onPressed: () {
               sharedPreferences.clear();
+              Navigator.pop(context);
               Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => WelcomePage()), (Route<dynamic> route) => false);
               },
               textColor: Colors.white,

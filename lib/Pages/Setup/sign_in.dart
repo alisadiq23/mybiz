@@ -61,6 +61,7 @@ class _LoginPageState extends State<LoginPage> {
     }
     else {
       setState(() {
+        _showDialog();
         _isLoading = false;
       });
       print(response.body);
@@ -142,4 +143,29 @@ class _LoginPageState extends State<LoginPage> {
               fontWeight: FontWeight.bold)),
     );
   }
+
+  void _showDialog(){
+    showDialog(
+      context:context ,
+      builder:(BuildContext context){
+        return AlertDialog(
+          title: new Text('Failed'),
+          content:  new Text('Check your email or password'),
+          actions: <Widget>[
+            new RaisedButton(
+
+              child: new Text("Close", style: TextStyle(color: Colors.white70)),
+
+              onPressed: (){
+                Navigator.of(context).pop();
+              },
+
+            ),
+          ],
+        );
+      }
+    );
+  }
+
+
 }
