@@ -1,10 +1,7 @@
 import 'dart:convert';
-import 'package:mybiz/Pages/Setup/welcome.dart';
 import 'package:mybiz/Pages/home.dart' as prefix0;
-import 'package:mybiz/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mybiz/Services/api_service.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -89,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
          
         },
         elevation: 0.0,
-        color: Colors.purple,
+        color: Colors.blue,
         child: Text("Sign In", style: TextStyle(color: Colors.white70)),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
       ),

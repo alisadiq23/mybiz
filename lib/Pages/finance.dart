@@ -2,6 +2,13 @@ import 'package:mybiz/Pages/Setup/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:mybiz/Pages/home.dart' as prefix0;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:mybiz/Pages/operations.dart'as prefix2;
+import 'package:mybiz/Pages/customers.dart'as prefix3;
+import 'package:mybiz/Pages/executive.dart'as prefix4;
+import 'package:mybiz/Pages/Setup/setting.dart'as prefix5;
+import 'package:mybiz/Pages/tutorial.dart'as prefix6;
+import 'package:mybiz/Pages/about.dart'as prefix7;
+import 'package:mybiz/Pages/contacts.dart'as prefix8;
 
 class Finance extends StatelessWidget {
   @override
@@ -43,7 +50,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("MyBiz", style: TextStyle(color: Colors.white)),
+        title: Text("Finance", style: TextStyle(color: Colors.white)),
         actions: <Widget>[
         ],
       ),
@@ -75,7 +82,8 @@ class _MainPageState extends State<MainPage> {
                   backgroundImage: ExactAssetImage ('assets/images/setting.png'),
                   child: GestureDetector(
                   onTap: (){
-                    print('g setting'); //tbd, link to setting, perhaps
+                    Navigator.pop(context);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => prefix5.Settings(), fullscreenDialog: true));
                   },
                 ),
                 )
@@ -98,7 +106,7 @@ class _MainPageState extends State<MainPage> {
               trailing: Icon(Icons.monetization_on),
               onTap: () {
               Navigator.pop(context);
-            //  Navigator.push(context, MaterialPageRoute(builder: (context) => null, fullscreenDialog: true));
+              //Navigator.push(context, MaterialPageRoute(builder: (context) => prefix1.Finance(), fullscreenDialog: true));
               }
             ),
               
@@ -106,19 +114,28 @@ class _MainPageState extends State<MainPage> {
             ListTile(
               title: Text('OPERATIONS'),
               trailing: Icon(Icons.work),
-              //onTap: (),
+              onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => prefix2.Operations(), fullscreenDialog: true));
+              }
             ),
             Divider(height: 2.0,),
             ListTile(
               title: Text('CUSTOMERS'),
               trailing: Icon(Icons.people),
-              //onTap: (),
+              onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => prefix3.Customers(), fullscreenDialog: true));
+              }
             ),
             Divider(height: 2.0,),
             ListTile(
               title: Text('EXECUTIVE'),
               trailing: Icon(Icons.people_outline),
-              //onTap: (),
+              onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => prefix4.Executive(), fullscreenDialog: true));
+              }
             ),
 
 
@@ -132,19 +149,28 @@ class _MainPageState extends State<MainPage> {
             ListTile(
               title: Text('TUTORIAL'),
               trailing: Icon(Icons.ondemand_video),
-              //onTap: (),
+              onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => prefix6.Tutorials(), fullscreenDialog: true));
+              }
             ),
             Divider(height: 2.0,),
             ListTile(
               title: Text('ABOUT'),
               trailing: Icon(Icons.info),
-              //onTap: (),
+              onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => prefix7.About(), fullscreenDialog: true));
+              }
             ),
             Divider(height: 2.0,),
             ListTile(
               title: Text('CONTACT'),
               trailing: Icon(Icons.contacts),
-              //onTap: (),
+              onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => prefix8.Contacts(), fullscreenDialog: true));
+              }
             ),
             Divider(height: 2.0,),
               new RaisedButton(

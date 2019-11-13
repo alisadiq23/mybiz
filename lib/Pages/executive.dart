@@ -1,21 +1,20 @@
 import 'package:mybiz/Pages/Setup/welcome.dart';
 import 'package:flutter/material.dart';
-import 'package:mybiz/Pages/finance.dart'as prefix1;
+import 'package:mybiz/Pages/home.dart' as prefix0;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:mybiz/Pages/finance.dart'as prefix1;
 import 'package:mybiz/Pages/operations.dart'as prefix2;
 import 'package:mybiz/Pages/customers.dart'as prefix3;
-import 'package:mybiz/Pages/executive.dart'as prefix4;
 import 'package:mybiz/Pages/Setup/setting.dart'as prefix5;
 import 'package:mybiz/Pages/tutorial.dart'as prefix6;
 import 'package:mybiz/Pages/about.dart'as prefix7;
 import 'package:mybiz/Pages/contacts.dart'as prefix8;
 
-class Home extends StatelessWidget {
-
+class Executive extends StatelessWidget {
   @override
  Widget build(BuildContext context) {
     return MaterialApp(
-      title: "MyBiz",
+      title: "Executive Page",
       debugShowCheckedModeBanner: false,
       home: MainPage(),
       theme: ThemeData(
@@ -32,7 +31,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
 
-  SharedPreferences sharedPreferences;
+   SharedPreferences sharedPreferences;
 
   @override
   void initState() {
@@ -47,22 +46,15 @@ class _MainPageState extends State<MainPage> {
     }
   }
 
-  @override
+@override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("MyBiz", style: TextStyle(color: Colors.white)),
+        title: Text("Executive", style: TextStyle(color: Colors.white)),
         actions: <Widget>[
-          FlatButton(
-            onPressed: () {
-              sharedPreferences.clear();
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => WelcomePage()), (Route<dynamic> route) => false);
-            },
-            child: Text("Log Out", style: TextStyle(color: Colors.white)),
-          ),
         ],
       ),
-      body: Center(child: Text("Dashboard page/same as in xd will be dev in future...")),
+      body: Center(child: Text("Executive page test/this is a test for the drawer")),
       drawer: Drawer(
         child:SafeArea(
         left: true,
@@ -103,9 +95,10 @@ class _MainPageState extends State<MainPage> {
             ListTile(
               title: Text('DASHBOARD'),
               trailing: Icon(Icons.dashboard),
-              onTap: (){
-                Navigator.pop(context);
-              },
+              onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => prefix0.Home(), fullscreenDialog: true));
+              }
             ),
             Divider(height: 2.0,),
             ListTile(
@@ -141,7 +134,7 @@ class _MainPageState extends State<MainPage> {
               trailing: Icon(Icons.people_outline),
               onTap: () {
               Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => prefix4.Executive(), fullscreenDialog: true));
+              //Navigator.push(context, MaterialPageRoute(builder: (context) => prefix3.Customers(), fullscreenDialog: true));
               }
             ),
 
