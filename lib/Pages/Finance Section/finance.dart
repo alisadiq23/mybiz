@@ -10,26 +10,12 @@ import 'package:mybiz/Pages/tutorial.dart'as prefix6;
 import 'package:mybiz/Pages/about.dart'as prefix7;
 import 'package:mybiz/Pages/contacts.dart'as prefix8;
 
-class Finance extends StatelessWidget {
+class FinancePage extends StatefulWidget {
   @override
- Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Finance Page",
-      debugShowCheckedModeBanner: false,
-      home: MainPage(),
-      theme: ThemeData(
-        accentColor: Colors.white70
-      ),
-    );
-  }
+  _FinancePageState createState() => _FinancePageState();
 }
 
-class MainPage extends StatefulWidget {
-  @override
-  _MainPageState createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
+class _FinancePageState extends State<FinancePage> {
 
    SharedPreferences sharedPreferences;
 
@@ -46,6 +32,47 @@ class _MainPageState extends State<MainPage> {
     }
   }
 
+   Widget bodyData() => DataTable(
+      onSelectAll: (b) {},
+      sortColumnIndex: 1,
+      sortAscending: false,
+      columns: <DataColumn>[
+        DataColumn(
+          label: Text("Finance Section"),
+          numeric: false,
+          onSort: (i, b) {
+            print("$i $b");
+          },
+          tooltip: "Core Function of Finance Section",
+        ),
+        DataColumn(
+          label: Text("Revenue"),
+          numeric: true,
+          onSort: (i, b) {
+            print("$i $b");
+          },
+          tooltip: "All the total will be calculate.",
+        ),
+      ],
+      rows: names
+          .map(
+            (name) => DataRow(
+                  cells: [
+                    DataCell(
+                      Text(name.financecore),
+                      showEditIcon: false,
+                      placeholder: false,
+                    ),
+                    DataCell(
+                      Text(name.revenuecore),
+                      showEditIcon: true,
+                      placeholder: false,
+                    )
+                  ],
+                ),
+          )
+          .toList());
+
 @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +81,8 @@ class _MainPageState extends State<MainPage> {
         actions: <Widget>[
         ],
       ),
-      body: Center(child: Text("Finance page test/this is a test for the drawer")),
+      body: Container(
+        child: bodyData()),
       drawer: Drawer(
         child:SafeArea(
         left: true,
@@ -97,7 +125,8 @@ class _MainPageState extends State<MainPage> {
               trailing: Icon(Icons.dashboard),
               onTap: () {
               Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => prefix0.Home(), fullscreenDialog: true));
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => prefix0.Home()), (Route<dynamic> route) => false);
+              //Navigator.push(context, MaterialPageRoute(builder: (context) => prefix0.Home(), fullscreenDialog: true));
               }
             ),
             Divider(height: 2.0,),
@@ -191,3 +220,19 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
+
+  
+class Name {
+  String financecore;
+  String revenuecore;
+
+  Name({this.financecore, this.revenuecore});
+}
+
+var names = <Name>[
+  Name(financecore: "Balance Sheet", revenuecore: "5810000"),
+  Name(financecore: "Profit and Loss", revenuecore: "695506"),
+  Name(financecore: "Trading", revenuecore: "665741"),
+  Name(financecore: "Manufactaring", revenuecore: "210005"),
+  Name(financecore: "Others", revenuecore: "352200"),
+];

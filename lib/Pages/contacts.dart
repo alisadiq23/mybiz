@@ -2,7 +2,7 @@ import 'package:mybiz/Pages/Setup/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:mybiz/Pages/home.dart' as prefix0;
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:mybiz/Pages/finance.dart'as prefix1;
+import 'package:mybiz/Pages/Finance Section/finance.dart'as prefix1;
 import 'package:mybiz/Pages/operations.dart'as prefix2;
 import 'package:mybiz/Pages/customers.dart'as prefix3;
 import 'package:mybiz/Pages/executive.dart'as prefix4;
@@ -106,7 +106,7 @@ class _MainPageState extends State<MainPage> {
               trailing: Icon(Icons.monetization_on),
               onTap: () {
               Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => prefix1.Finance(), fullscreenDialog: true));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => prefix1.FinancePage(), fullscreenDialog: true));
               }
             ),
               

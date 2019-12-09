@@ -1,6 +1,6 @@
 import 'package:mybiz/Pages/Setup/welcome.dart';
 import 'package:flutter/material.dart';
-import 'package:mybiz/Pages/finance.dart'as prefix1;
+import 'package:mybiz/Pages/Finance Section/finance.dart'as prefix1;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:mybiz/Pages/operations.dart'as prefix2;
 import 'package:mybiz/Pages/customers.dart'as prefix3;
@@ -114,7 +114,8 @@ class _MainPageState extends State<MainPage> {
               trailing: Icon(Icons.monetization_on),
               onTap: () {
               Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => prefix1.Finance(), fullscreenDialog: true));
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => prefix1.FinancePage()), (Route<dynamic> route) => false);
+              //Navigator.push(context, MaterialPageRoute(builder: (context) => prefix1.Finance(), fullscreenDialog: true));
               }
             ),
               
@@ -185,7 +186,8 @@ class _MainPageState extends State<MainPage> {
               onPressed: () {
               sharedPreferences.clear();
               Navigator.pop(context);
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => WelcomePage()), (Route<dynamic> route) => false);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomePage(), fullscreenDialog: true));
+              //Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => WelcomePage()), (Route<dynamic> route) => false);
               },
               textColor: Colors.white,
               color: Colors.red,
