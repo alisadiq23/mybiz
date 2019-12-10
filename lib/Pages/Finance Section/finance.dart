@@ -33,45 +33,35 @@ class _FinancePageState extends State<FinancePage> {
   }
 
    Widget bodyData() => DataTable(
-      onSelectAll: (b) {},
-      sortColumnIndex: 1,
-      sortAscending: false,
-      columns: <DataColumn>[
-        DataColumn(
-          label: Text("Finance Section"),
-          numeric: false,
-          onSort: (i, b) {
-            print("$i $b");
-          },
-          tooltip: "Core Function of Finance Section",
-        ),
-        DataColumn(
-          label: Text("Revenue"),
-          numeric: true,
-          onSort: (i, b) {
-            print("$i $b");
-          },
-          tooltip: "All the total will be calculate.",
-        ),
-      ],
-      rows: names
-          .map(
-            (name) => DataRow(
-                  cells: [
-                    DataCell(
-                      Text(name.financecore),
-                      showEditIcon: false,
-                      placeholder: false,
-                    ),
-                    DataCell(
-                      Text(name.revenuecore),
-                      showEditIcon: true,
-                      placeholder: false,
-                    )
-                  ],
-                ),
-          )
-          .toList());
+     columns: [
+       DataColumn(label: Text('Finance Section', style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)), numeric: false),
+       DataColumn(label: Text('Revenue', style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)), numeric: true),
+     ],
+     rows: [
+      DataRow(cells: [
+        DataCell(Text('Balance Sheet', style: TextStyle(fontSize: 14)), showEditIcon: false),
+        DataCell(Text('5984210.00', style: TextStyle(fontSize: 14))), //later to be implement with the database. making it numerical also perhaps
+      ]),
+      DataRow(cells: [
+        DataCell(Text('Profit and Loss', style: TextStyle(fontSize: 14)), showEditIcon: false),
+        DataCell(Text('7777777.00', style: TextStyle(fontSize: 14))), //later to be implement with the database. making it numerical also perhaps
+      ]),
+      DataRow(cells: [
+        DataCell(Text('Trading', style: TextStyle(fontSize: 14)), showEditIcon: false),
+        DataCell(Text('5555++++.00', style: TextStyle(fontSize: 14))), //later to be implement with the database. making it numerical also perhaps
+      ]),
+      DataRow(cells: [
+        DataCell(Text('Manufactaring', style: TextStyle(fontSize: 14)), showEditIcon: false),
+        DataCell(Text('1234567.00', style: TextStyle(fontSize: 14))), //later to be implement with the database. making it numerical also perhaps
+      ]),
+      DataRow(cells: [
+        DataCell(Text('Others', style: TextStyle(fontSize: 14)), showEditIcon: true, onTap: () { Navigator.push(context,MaterialPageRoute(builder: (context) => prefix7.About()),);}),
+        DataCell(Text('200001.00', style: TextStyle(fontSize: 14)), onTap: () { Navigator.push(context,MaterialPageRoute(builder: (context) => prefix7.About()),);}), //later to be implement with the database. making it numerical also perhaps
+      ]),
+     ],
+   );
+       
+
 
 @override
   Widget build(BuildContext context) {
