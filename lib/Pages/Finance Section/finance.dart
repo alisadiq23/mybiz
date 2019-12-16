@@ -9,6 +9,11 @@ import 'package:mybiz/Pages/Setup/setting.dart'as prefix5;
 import 'package:mybiz/Pages/tutorial.dart'as prefix6;
 import 'package:mybiz/Pages/about.dart'as prefix7;
 import 'package:mybiz/Pages/contacts.dart'as prefix8;
+import 'package:mybiz/Pages/Finance Section/Balance Sheet Section/balanceSheet.dart' as prefix9;
+import 'package:mybiz/Pages/Finance Section/Profitnloss/profitNLoss.dart' as prefix10;
+import 'package:mybiz/Pages/Finance Section/Trading/trading.dart' as prefix11;
+import 'package:mybiz/Pages/Finance Section/Manufactaring/manufactaring.dart' as prefix12;
+import 'package:mybiz/Pages/Finance Section/Others/Others.dart' as prefix13;
 
 class FinancePage extends StatefulWidget {
   @override
@@ -39,24 +44,24 @@ class _FinancePageState extends State<FinancePage> {
      ],
      rows: [
       DataRow(cells: [
-        DataCell(Text('Balance Sheet', style: TextStyle(fontSize: 14)), showEditIcon: false),
-        DataCell(Text('5984210.00', style: TextStyle(fontSize: 14))), //later to be implement with the database. making it numerical also perhaps
+        DataCell(Text('Balance Sheet', style: TextStyle(fontSize: 14)), showEditIcon: true, onTap: () { Navigator.push(context,MaterialPageRoute(builder: (context) => prefix9.BalanceSheet()),);}),
+        DataCell(Text('5984210.00', style: TextStyle(fontSize: 14)), onTap: () { Navigator.push(context,MaterialPageRoute(builder: (context) => prefix9.BalanceSheet()),);}), //later to be implement with the database. making it numerical also perhaps
       ]),
       DataRow(cells: [
-        DataCell(Text('Profit and Loss', style: TextStyle(fontSize: 14)), showEditIcon: false),
-        DataCell(Text('7777777.00', style: TextStyle(fontSize: 14))), //later to be implement with the database. making it numerical also perhaps
+        DataCell(Text('Profit and Loss', style: TextStyle(fontSize: 14)), showEditIcon: true, onTap: () { Navigator.push(context,MaterialPageRoute(builder: (context) => prefix10.ProfitNLoss()),);}),
+        DataCell(Text('7777777.00', style: TextStyle(fontSize: 14)), showEditIcon: false, onTap: () { Navigator.push(context,MaterialPageRoute(builder: (context) => prefix10.ProfitNLoss()),);}), //later to be implement with the database. making it numerical also perhaps
       ]),
       DataRow(cells: [
-        DataCell(Text('Trading', style: TextStyle(fontSize: 14)), showEditIcon: false),
-        DataCell(Text('5555++++.00', style: TextStyle(fontSize: 14))), //later to be implement with the database. making it numerical also perhaps
+        DataCell(Text('Trading', style: TextStyle(fontSize: 14)), showEditIcon: true, onTap: () { Navigator.push(context,MaterialPageRoute(builder: (context) => prefix11.Trading()),);}),
+        DataCell(Text('5555++++.00', style: TextStyle(fontSize: 14)), showEditIcon: false, onTap: () { Navigator.push(context,MaterialPageRoute(builder: (context) => prefix11.Trading()),);}), //later to be implement with the database. making it numerical also perhaps
       ]),
       DataRow(cells: [
-        DataCell(Text('Manufactaring', style: TextStyle(fontSize: 14)), showEditIcon: false),
-        DataCell(Text('1234567.00', style: TextStyle(fontSize: 14))), //later to be implement with the database. making it numerical also perhaps
+        DataCell(Text('Manufactaring', style: TextStyle(fontSize: 14)), showEditIcon: true, onTap: () { Navigator.push(context,MaterialPageRoute(builder: (context) => prefix12.Manufactaring()),);}),
+        DataCell(Text('1234567.00', style: TextStyle(fontSize: 14)), onTap: () { Navigator.push(context,MaterialPageRoute(builder: (context) => prefix12.Manufactaring()),);}), //later to be implement with the database. making it numerical also perhaps
       ]),
       DataRow(cells: [
-        DataCell(Text('Others', style: TextStyle(fontSize: 14)), showEditIcon: true, onTap: () { Navigator.push(context,MaterialPageRoute(builder: (context) => prefix7.About()),);}),
-        DataCell(Text('200001.00', style: TextStyle(fontSize: 14)), onTap: () { Navigator.push(context,MaterialPageRoute(builder: (context) => prefix7.About()),);}), //later to be implement with the database. making it numerical also perhaps
+        DataCell(Text('Others', style: TextStyle(fontSize: 14)), showEditIcon: true, onTap: () { Navigator.push(context,MaterialPageRoute(builder: (context) => prefix13.Others()),);}),
+        DataCell(Text('200001.00', style: TextStyle(fontSize: 14)), onTap: () { Navigator.push(context,MaterialPageRoute(builder: (context) => prefix12.Manufactaring()),);}), //later to be implement with the database. making it numerical also perhaps
       ]),
      ],
    );
